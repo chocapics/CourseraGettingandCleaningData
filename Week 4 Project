@@ -38,19 +38,6 @@ dataframe <- cbind(subject_full, y_full, x_filtered)
 colnames(dataframe) <- c("volunteer", "activity", interesting_cols[,2])
 write.csv(dataframe, "tidy.csv")
 
-#all_means <- data.frame()
-#for (v in unique(dataframe$volunteer)) {
-#  for (a in unique(dataframe$activity)) {
-#    tmp   <- dataframe[dataframe$volunteer == v & dataframe$activity == a,]
-#    means <- c()
-#    for (i in 3:ncol(tmp)) {
-#      means[i-2] <- mean(tmp[[i]])
-#    }
-#    all_means <- rbind(all_means, c(v, a, means))
-#  }
-#}
-#colnames(all_means) <- c("volunter", "activity", interesting_cols[,2])
-
 tidy_means <- aggregate(dataframe[, 3:ncol(dataframe)], list(dataframe$volunteer, dataframe$activity), mean)
 names(tidy_means)[1] <- "volunteer" # rename groups
 names(tidy_means)[2] <- "activity"  # rename groups
