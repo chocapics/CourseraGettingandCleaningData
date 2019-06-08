@@ -30,7 +30,7 @@ y_full  <- rbind(y_train, y_test)
 # Replace labels with more descriptive names
 activity_labels <- read.table("activity_labels.txt")
 for (i in 1:length(activity_labels[,1])) {
-  y_full[y_full==toString(i)] <- activity_labels[i,2]
+  y_full[y_full==activity_labels[i,1]] <- activity_labels[i,2]
 }
 
 # Merge everything together
