@@ -1,5 +1,5 @@
 Tidy data set description
-=====================
+=========
 
 Subject column is numbered sequentially from 1 to 30. Activity column has 6 types as listed below.
 
