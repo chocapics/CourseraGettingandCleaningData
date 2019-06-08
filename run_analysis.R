@@ -42,3 +42,4 @@ tidy_means <- aggregate(dataframe[, 3:ncol(dataframe)], list(dataframe$volunteer
 names(tidy_means)[1] <- "volunteer" # rename groups
 names(tidy_means)[2] <- "activity"  # rename groups
 write.table(tidy_means, "tidy_means.txt", row.names=FALSE)
+
