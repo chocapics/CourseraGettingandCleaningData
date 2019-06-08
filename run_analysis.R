@@ -36,9 +36,9 @@ for (i in 1:length(activity_labels[,1])) {
 # Merge everything together
 dataframe <- cbind(subject_full, y_full, x_filtered)
 colnames(dataframe) <- c("volunteer", "activity", interesting_cols[,2])
-write.csv(dataframe, "tidy.csv")
+write.table(dataframe, "tidy.txt", row.name=FALSE)
 
 tidy_means <- aggregate(dataframe[, 3:ncol(dataframe)], list(dataframe$volunteer, dataframe$activity), mean)
 names(tidy_means)[1] <- "volunteer" # rename groups
 names(tidy_means)[2] <- "activity"  # rename groups
-write.csv(tidy_means, "tidy_means.csv")
+write.table(tidy_means, "tidy_means.txt", row.name=FALSE)
